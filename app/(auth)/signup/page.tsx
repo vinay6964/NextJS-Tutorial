@@ -1,7 +1,9 @@
+import { Signup } from "@/components/SignUp";
+
 export default function SignUp() {
     return (
       <div>
-        Sign Up Page
+       <Signup />
       </div>
     );
   }
