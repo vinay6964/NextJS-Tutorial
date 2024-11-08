@@ -1,6 +1,5 @@
 // import axios from "axios";
-import { PrismaClient } from "@prisma/client";
-const client  = new PrismaClient();
+import client from "@/db"
 
 async function getUserDetails () {
   // let pms = await new Promise ((resolve)=>{
@@ -26,6 +25,10 @@ async function getUserDetails () {
 
 }
 
+// function with async is alsways server side component and we cant use this as client side redering and unless api call or db fetch is not done
+// this async component will not render and till then loading component will render and once data is fetched first the component will get
+// pre rendered on the server with the data then it will get rendered on the browser with the fetched data 
+// so here server side rendering helped in resolving water fall issue and does SEO optimization
 
 export default async function Home() {
   const userData = await getUserDetails();
